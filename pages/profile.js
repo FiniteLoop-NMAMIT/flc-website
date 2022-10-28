@@ -94,6 +94,7 @@ export default function Profile() {
               height={200}
               alt="Profile Picture"
             />
+            {console.log(data)}
             <a className="heading text-center text-2xl font-bold">
               {data.user.name}
             </a>
@@ -130,6 +131,13 @@ export default function Profile() {
                 </a>
               </Link>
             </p>
+            <div>
+              <Link href="/my-team">
+                <a className="heading font-bold text-md md:text-lg">
+                  View your Team &gt;&gt;
+                </a>
+              </Link>
+            </div>
             <div className="flex gap-5">
               <Button onClick={() => signOut()}>
                 <a>Sign Out</a>

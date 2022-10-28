@@ -48,6 +48,7 @@ model User {
   Team          Team?     @relation(fields: [teamId], references: [id], onDelete: Cascade)
   accounts      Account[]
   sessions      Session[]
+  Lead          Lead[]
 }
 
 model VerificationToken {
@@ -70,6 +71,7 @@ model Team {
   description String
   Task        Task[]
   members     User[]
+  Lead        Lead[]
 }
 
 model Task {
@@ -92,4 +94,12 @@ model RegistrationPayment {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   paymentData Json?
+}
+
+model Lead {
+  id     Int    @id
+  user   User   @relation(fields: [userId], references: [id])
+  team   Team   @relation(fields: [teamId], references: [id])
+  userId String
+  teamId Int
 }

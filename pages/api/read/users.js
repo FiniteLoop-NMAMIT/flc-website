@@ -29,6 +29,9 @@ export default async function handler(req, res) {
                                 }
                             },
                         ],
+                    },
+                    include: {
+                        Team: true,
                     }
                 })
                 res.status(200).json({ message: 'Users', data: users })
